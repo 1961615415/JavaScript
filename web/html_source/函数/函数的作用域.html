@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数的作用域</title>
+    <script>
+        /*这说明JavaScript的函数在查找变量时从自身函数定义开始，
+        从“内”向“外”查找。如果内部函数定义了与外部函数重名的变量，
+        则内部函数的变量将“屏蔽”外部函数的变量。*/
+function sf() {
+    var i=10;
+    console.log("sf中的i="+i);
+    add();
+    function add() {
+        var  i=11;
+        console.log("add中i="+i);
+    }
+}
+sf();//sf中的i=10 add中i=11
+        /***
+         * JavaScript的函数定义有个特点，
+         *            它会先扫描整个函数体的语句，把所有申明的变量“提升”到函数顶部.
+         *            但是它不会提升变量的赋值
+         */
+        function f1() {
+            console.log("y="+y);//y=undefined
+            var y=10;
+        }
+        f1();
+        //提升变量后的代码为
+        function f2() {
+            var y;
+            console.log("y="+y);
+            y=10;
+        }
+        f2();
+        //所以需要先规范代码 在代码开始就将变量都申明
+        function f3() {
+            var i=10,
+                y=19,
+                z=20;
+            console.log("i="+i,"y="+y,"z="+z);
+        }
+        f3();//i=10 y=19 z=20
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

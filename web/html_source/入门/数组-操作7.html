@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的操作</title>
+    <script>
+        /***
+         * JavaScript的Array可以包含任意数据类型，并通过索引来访问每个元素。
+         */
+        var arr=[1,2,3,'b','3'];
+        //1）数组的属性-长度length、
+        console.log(arr.length);//5
+        //2)取数组的值-使用索引下标
+        console.log(arr[0]);//1
+        console.log(arr[10]);//未找到undefined
+        arr[0]=10;
+        console.log(arr);//[10, 2, 3, "b", "3"]
+        // 与字符串不同的是，引用修改数组的索引指定的值之后，原数组会发生变化
+
+       /* 3)使用length来修改数组的长度,或者引用超过索引值得值也会引起数组长度的变化
+        大多数其他编程语言不允许直接改变数组的大小，越界访问索引会报错。
+        然而，JavaScript的Array却不会有任何错误。
+       在编写代码时，不建议直接修改Array的大小，访问索引时要确保索引不会越界。*/
+       arr.length=10;
+       console.log(arr);//[10, 2, 3, "b", "3", empty × 5]
+       arr[12]=9;
+       console.log(arr);//[10, 2, 3, "b", "3", empty × 7, 9]
+        //4）数组函数
+        //取指定值得位置索引
+        console.log(arr.indexOf(3));//取数值3 2
+        console.log(arr.indexOf('3'));//取字符串3 4
+        //取指定区间内的，不包含末尾区间值，返回数组
+        console.log(arr.slice(0,2));//[10, 2]
+        //复制数组
+        console.log(arr.slice());//不传参数，直接截取整个数组 [10, 2, 3, "b", "3", empty × 7, 9]
+        //数组的排序
+        var arr1=['C','B','D'];
+        arr1.sort();//sort()可以对当前Array进行排序，它会直接修改当前Array的元素位置，直接调用时，按照默认顺序排序
+        console.log("排序:"+arr1);//BCD
+        //sort()方法会直接对原数组进行修改
+        //sort是把所有元素先转换为String再按照ASCII码进行排序，这是一个坑，因此我们可以自定义排序
+        var arrsort=[1,6,3,9];
+        //按大小排序
+        var arrjg=arrsort.sort(function (a, b) {
+            if(a>b){
+                return 1;
+            }
+            if (a<b){
+                return  -1;
+            }
+            if(a=b){
+                return 0;
+            }
+        });
+        console.log("arrjg"+arrjg);//1369
+
+        //添加元素
+        arr1.push('&');//末尾添加
+        console.log(arr1);//["B", "C", "D", "&"]
+        arr1.unshift('s');//首添加
+        console.log(arr1);//["s", "B", "C", "D", "&"]
+        //删除元素
+        arr1.pop();//末尾删
+        console.log(arr1);//["s", "B", "C", "D"]
+        arr1.shift();//首删除
+        console.log(arr1);//["B", "C", "D"]
+        //如果删除的元素不存在时，不会报错，而是返回undefined
+        //反转数组
+        arr1.reverse();
+        console.log("反转后的数组:",arr1);//["D", "C", "B"]
+        //splice()方法是修改Array的“万能方法”，它可以从指定的索引开始删除若干元素，然后再从该位置添加若干元素：
+        console.log("删除的元素为：",arr1.splice(0,1,"E"));//["D"] 从指定位置开始，删除几个元素，再加上几个元素 从0位置开始，删除一个元素B被删除
+        console.log("删除又添加元素之后的数组：",arr1);//["E", "C", "B"]
+        arr1.splice(0,0,'N','M');//不删除只添加
+        console.log(arr1);//["N", "M", "E", "C", "B"]
+        //拼接两个数组
+        // 请注意，concat()方法并没有修改当前Array，而是返回了一个新的Array。
+        // 实际上，concat()方法可以接收任意个元素和Array，并且自动把Array拆开，然后全部添加到新的Array里
+        var  arr2=['w','e'];
+        var arr3=['t','y'];
+        console.log(arr2.concat(arr3));//["w", "e", "t", "y"] 原数组不变，添加到新的数组中
+        console.log(arr2);//["w", "e"]
+        // join,使用指定的符号来连接数组元素为字符串。如果Array的元素不是字符串，将自动转换为字符串后再连接
+         console.log(arr2.join(','));//w,e
+        //多维数组
+        var arrd = [[1, 2, 3], [400, 500, 600], '-'];
+        console.log(arrd[1][1]);//取多数组的值 500
+
+        var arrName = ['小明', '小红', '大军', '阿黄'];
+        console.log(`欢迎${arrName[0]}、${arrName[1]}和${arrName[2]}童鞋的到来！`);//欢迎小明、小红和大军童鞋的到来！
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

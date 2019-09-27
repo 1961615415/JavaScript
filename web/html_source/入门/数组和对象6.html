@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组和对象</title>
+    <script>
+        /***
+         * 定义数组
+         * @type {number[]}
+         */
+        var arr=[1,2,3];
+        console.log(arr[0]);//数组的索引从0开始 1
+        var arr1=new Array(1,2,3);
+        console.log(arr1);//[1, 2, 3]
+        console.log(arr[arr.length]);//超出数组的范围会报：undefined
+        /***
+         * 定义对象
+         *对象的键是字符串，值是任意类型
+         */
+        var student={"name":"学生1",
+        "age":10,
+        "jt":{"fm":"父母一"}};
+        console.log(student.name);//调用对象的值 学生1
+        console.log(student.jt.fm);//父母一
+    </script>
+</head>
+<body>
+
+</body>
+</html>

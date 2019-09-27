@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>方法</title>
+    <script>
+        /***
+         * 方法：对象的函数就是方法
+         */
+        var student={
+            name:"学生1",
+            age:10,
+            writeZi:function () {
+                return this.name+"写字";
+            }
+        };
+        console.log(student.writeZi());//学生1写字
+        //this的指向是看情况，当前是指向对象 student
+        //现在我们将方法提到外边
+        function writeXie() {
+            return this.name+"写字";
+        }
+        var student2={
+            name:"学生1",
+            age:10,
+            writeZi:writeXie()
+        };
+        //console.log(writeXie());// 可能会报 ReferenceError: writeZi is not defined this的指向找不到student2
+        /*要指定函数的this指向哪个对象，可以用函数本身的apply方法，
+        它接收两个参数，第一个参数就是需要绑定的this变量，第二个参数是Array，表示函数本身的参数。
+        用apply修复writeXie()调用：*/
+        //修复
+        console.log(writeXie.apply(student2,[]));//apply:第一个参数是this,也就是调用谁的这个name,另一个参数是是传递的参数数组
+        /***
+         * apply()把参数打包成Array再传入；
+         call()把参数按顺序传入。
+         普通的函数直接就是this=null
+         */
+        var max1=Math.max.apply(null,[1,2,3]);
+        var max2=Math.max.call(null,1,2,3);
+        console.log("max1="+max1);//max1=3
+        console.log("max2="+max2);//max1=3
+        /**
+         * 装饰器
+         * 利用apply()，我们还可以动态改变函数的行为
+         */
+        /***
+         * 需求调用某个函数的次数
+         */
+       /* 'use strict';
+       var oldWrite=document.write;
+        var sumCount=0;
+        window.document.write=function () {
+            sumCount+=1;
+            return oldWrite.apply(null,arguments);
+        };
+        document.write("dd");
+        document.write("324");
+        document.write("pp");
+        console.log("调用的次数："+sumCount);//Uncaught TypeError: Illegal invocation 一直报错？*/
+        'use strict';
+        var count = 0;
+        var oldParseInt = parseInt; // 保存原函数
+        window.parseInt = function () {
+            count += 1;
+            return oldParseInt.apply(null, arguments); // 调用原函数
+        };
+        parseInt(1);
+        parseInt(2);
+        console.log(count);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

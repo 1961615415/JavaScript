@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全局作用域</title>
+    <script>
+        /***
+         * 不在任何函数内定义的变量就具有全局作用域。
+         * JavaScript实际上只有一个全局对象window。
+         * 全局作用域的变量实际上被绑定到window的一个属性任何变量（函数也视为变量），
+         * 如果没有在当前函数作用域中找到，就会继续往上查找，最后如果在全局作用域中也没有找到，则报ReferenceError错误。
+         */
+        var i=10;
+        function f() {
+            console.log("使用全局对象window来换取数据："+window.i);//使用全局对象window来换取数据：10
+            console.log("直接打印数据i："+i);//直接打印数据i：10
+        }
+        f();
+        //现在来看函数，实际上所以的函数也是window的一个变量
+        window.document.write("哈哈哈！我是通过JS的全局作用对象来调用的！");//出现在body中哈哈哈！我是通过JS的全局作用对象来调用的！
+        var oldWrite= window.document.write;
+        window.document.write=function m(i) {
+        alert(i);
+        }
+        window.document.write("我出现在弹出框中");//调用之后变成 弹出框
+        window.document.write=oldWrite;
+        window.document.write("我出现在boby中");//恢复为默认的之后  出现在body中
+    </script>
+</head>
+<body>
+
+</body>
+</html>

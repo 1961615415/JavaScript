@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据类型间的转换</title>
+    <script>
+        /***
+         * 数据类型间的转换指的是：转换为String、number、boolean这三种类型
+         */
+        /***
+         * 转换为数值类型
+         * @type {number}
+         */
+            //1.字符串类型转number
+        var s="42de3";
+        var s1=Number(s);//方法一：使用Number函数
+        console.log(s,typeof s);//42de3 string 原s的数据类型是不会变得
+        console.log(s1,typeof s1);//NaN number
+        var s2=parseInt(s);//方法二：使用parseInt函数，针对字符串推荐使用这种方法，
+        // 能返回有效的整数，如果第一个是非数值，将返回NaN，遇到非数值就直接停止解析。
+        //注意：parseInt是先将所要解析的类型转换为字符串，然后再解析成number类型
+        console.log(s2,typeof s2);//42 number
+
+        //2.boolean转number
+        var isTrue=true;
+        console.log(isTrue,typeof isTrue);//true "boolean"
+        var m=Number(isTrue);
+        console.log(m,typeof m);//1 number
+        var n=parseInt(isTrue);
+        console.log(n,typeof n);//NaN "number" 由于parseInt是先将所要转的变量先转成字符串，所以转成“true”之后，再转成number时，
+        // 一看首字符就直接返回NaN
+
+        //转成字符串类型
+        var s1="123";
+        console.log(s1,typeof s1);
+        var s2=s1.toString();//方法一：toString()方法
+        console.log(s2,typeof s2);
+        var s3=String(s1);//方法二：String()函数，实际上调用的是toString方法
+        console.log(s3,typeof s3);
+//两个方法的区别 对于undefined和null的数据类型，要使用String()函数，否则会报错
+        var f=undefined;
+        console.log(f,typeof f);//undefined "undefined"
+        /*
+        var m=f.toString();
+        console.log(m,typeof m);
+        数据类型间转换.html:43 Uncaught TypeError: Cannot read property 'toString' of undefined
+        */
+        var mm=String(f);
+        console.log(mm,typeof mm);//undefined string
+        var nu=null;
+        console.log(null,typeof nu);//null "object"
+        /*var nu1=nu.toString();
+        console.log(nu1,typeof nu1);//Uncaught TypeError: Cannot read property 'toString' of null at 数据类型间转换.html:52*/
+        var nu2=String(nu);
+        console.log(nu2,typeof nu2);//null "string"
+        /***
+         * 转成boolean类型
+         */
+        var ss="333";
+        console.log(ss,typeof ss);//hs string
+        var b=Boolean(ss);
+        console.log(b,typeof b);//true "boolean"
+        var n1=0;
+        var b2=Boolean(n1);
+        console.log(b2,typeof b2);//false "boolean"
+    </script>
+</head>
+<body>
+
+</body>
+</html>

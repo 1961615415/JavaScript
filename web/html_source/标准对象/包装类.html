@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>包装类</title>
+    <script>
+        /***
+         * typeof 判断类型，返回一个字符串
+         * 如果我们用typeof将无法区分出null、Array和通常意义上的object——{}
+         * 因为他们都是object
+         */
+        var s="s";
+        console.log(typeof s);
+        console.log(s===null);//比较null false
+        //包装类型使用new ,
+        // 注意永远都不要使用包装类型因为使用完之后就是object类型，这样做比较就会不相等
+        var ss=new String("s");
+        console.log(ss===s);//这样导致未false
+    </script>
+</head>
+<body>
+
+</body>
+</html>

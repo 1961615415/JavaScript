@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实现块级作用域</title>
+    <script>
+        /***
+         * 为了解决变量作用域的问题，ES6新加了一个let关键词来命名块级变量
+         */
+        //使用var的局部变量
+        function jbDemo(){
+            for (var i = 0; i <2 ; i++) {
+            }
+            console.log("这里可以使用i="+i);//这里可以使用i=2
+        }
+        jbDemo();
+        //使用let
+        function letDemo() {
+            for (let i = 0; i < 2; i++) {
+                console.log("块内使用i="+i);//块内使用i=0 块内使用i=1
+            }
+            console.log("这里就会报错i="+i);
+        }
+        letDemo();//Uncaught ReferenceError: i is not defined
+    </script>
+</head>
+<body>
+
+</body>
+</html>

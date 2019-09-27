@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>自定义全局变量来保存其它变量</title>
+    <script>
+        /***
+         *全局变量会绑定到window上，不同的JavaScript文件如果使用了相同的全局变量，或者定义了相同名字的顶层函数
+         * 都会造成命名冲突，并且很难被发现。
+         减少冲突的一个方法是把自己的所有变量和函数全部绑定到一个全局变量中。
+         */
+        var qj={};
+        qj.i=1;
+        qj.j=10;
+        console.log("统一到一个全局变量中，防止冲突："+qj.i);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

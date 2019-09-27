@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>循环语句</title>
+    <script>
+        /***
+         * for 与 while
+         * for 和 while 可能一次也不执行
+         * do while 是先执行再判断，至少执行一次
+         */
+        var arr=[1,2,3];
+        /***
+         * var i = 0; 变量初始值
+         * i <arr.length ; 循环条件
+         * i++ 每次循环之后加1
+         */
+        for (var i = 0; i <arr.length ; i++) {
+            console.log(arr[i]);//1  2  3
+        }
+       /* for(;;){
+            console.log("无限循环");
+        }*/
+        for (var  key in arr){
+            console.log(arr[key]);//1  2  3
+        }
+        var student={
+            name:"hah",
+            age:120
+        };
+        for (var key in student){
+            //有么有自己的属性
+            if(student.hasOwnProperty(key)){
+                console.log("属性值："+key,"值："+student[key]);
+                //?为什么student.key呢
+                //属性值：name 值：hah 属性值：age 值：120
+            }
+        }
+        /***
+         * while
+         */
+        var j=100;
+        while (j<1000){
+            console.log("while:",j);
+            j++;
+        }
+        do{
+           console.log("我是先做的人,无论怎样都先执行一次",j)
+        } while (j<10);
+        /***
+         * 请利用循环遍历数组中的每个名字，并显示Hello, xxx!：
+         var arr = ['Bart', 'Lisa', 'Adam'];
+         */
+        'use strict';
+        var arr=["张女士","王先生","李建军"];
+        for (var key in arr){
+            console.log(`Hello,${arr[key]}`);
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

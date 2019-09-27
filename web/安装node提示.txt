@@ -1,0 +1,15 @@
+1.npm install -g typings
+2.我们到项目开发目录，打开终端，输入：
+typings init
+
+这时当前目录下会出现一个typings.json的文件，这个文件就是typing的配置文件
+
+类似npm的package.json 然后在改目录命令窗口下输入以下命令，安装js插件的提示文件，如下：
+
+typings install dt~node --global --save
+
+//typings install dt~jquery --global --save
+
+（–global：代表全局文件，有些包必须得加上这个参数才行）
+
+（–save ：表示将此次的安装信息记录到上面讲的typings.json中)

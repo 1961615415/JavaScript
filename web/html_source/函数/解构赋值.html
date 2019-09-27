@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>解构赋值</title>
+    <script>
+        /***
+         * 解构赋值：就是能给一组数进行赋值
+         */
+            //1.为数组赋值
+        var arr=["历史","数学","英语"];
+        var x = arr[0];
+        var y = arr[1];
+        var z = arr[2];
+        //解构赋值 注意，对数组元素进行解构赋值时，多个变量要用[...]括起来。
+        [x,y,z]=["lisi","sx","yy"];
+        console.log("x="+x+",y="+y+",z="+z);//x=lisi,y=sx,z=yy
+        //可以只赋值一部分
+        [,,z]=[,,"zz"];
+        console.log("x="+x+",y="+y+",z="+z);//只赋值给z x=lisi,y=sx,z=zz
+        //2.针对对象  能快速的取出对象的值
+        var student={
+            name:"张三",
+            age:10,
+            address:"地址",
+            className:{
+                lisi:"历史",
+                shuxue:"数学",
+                yingyu:"英语"
+            }
+        };
+        //对象是用{}
+        var {name,age,className:{lisi}}=student;
+        console.log(name);//张三
+        console.log(student.name);//张三
+        //利用解构赋值
+        var {name,address:sex,className:{shuxue}}=student;
+        console.log(sex);//地址
+        //console.log(address);//address is not defined 因为address的值赋给了sex,不过针对number的这个不起作用
+       /* //给变量赋默认值，防止报undefined ？
+        var {name, address:"shang"} = student;
+        console.log(address);//是山东
+        console.log(student.address);//地址*/
+        //3）可以交换值
+        var x=10,y=17;
+       [x,y]=[y,x];
+        console.log("x="+x+",y="+y);//x=17,y=10
+        //4）创建对象
+        function buildDate({year, month, day, hour=0, minute=0, second=0}) {
+            return new Date(year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second);
+        }
+        console.log(buildDate({year:2019}));//Invalid Date
+        //使用解构赋值可以减少代码量，
+        // 但是，需要在支持ES6解构赋值特性的现代浏览器中才能正常运行。
+        // 目前支持解构赋值的浏览器包括Chrome，Firefox，Edge等。
+    </script>
+</head>
+<body>
+
+</body>
+</html>

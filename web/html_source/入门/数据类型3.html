@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>6种变量类型</title>
+    <script>
+        var n=1;
+        console.log("数字number类型:",typeof n);
+        var s="zfc";
+        console.log("字符串String类型：",typeof s);
+        var isTrue=true;
+        console.log(isTrue);
+        var isFalse=false;
+        console.log(isFalse);
+        console.log(typeof isTrue);
+        var b=null;
+        console.log("空类型Null",typeof b);
+        var a=undefined;
+        console.log("未定义数据类型undefined,没有赋值的变量：",typeof a);
+        var obj={"name":"张三"};
+        console.log("引用数据类型对象Object：",typeof obj);
+        var ss="我说:\"努力的样子最好看！\"";
+        console.log("字符串类型中不能出现双引号或单引号嵌套，所以特殊符号可以使用转义字符来实现",ss);
+    var nn="我是一个\n换行";
+    console.log(nn);
+    var t="我是一个\t空格";
+    console.log(t);
+    var f="我是一个\\反斜杠";
+    console.log(f);
+    var f=1.0990;
+    console.log(f);
+    var max=Number.MAX_VALUE;
+    console.log("无限大：",max*max);//无限大： Infinity
+    var min=Number.MIN_VALUE;
+    console.log("无限小",min*min)
+    var i=0/0;
+    console.log(i);//NaN 无法运算
+    </script>
+</head>
+<body>
+
+</body>
+</html>

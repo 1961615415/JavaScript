@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作对象</title>
+    <script>
+        /***
+         *  JavaScript的对象是一种无序的集合数据类型，它由若干键值对组成。
+         *  1)可以使用object.prop和[]来访问对象值
+         *  2)属性不存在 undefined
+         *  3）给属性赋值 student.cl="jj"
+         *  4)是否有某个属性
+         *         in:可能是对象继承的父类的
+         *         student.hasOwnProperty():对象自己的属性
+         *
+         */
+        var student={
+            name:"张女士",
+            age:100,
+            classMate:["李武","马六"]
+        };
+        console.log(student);//{name: "张女士", age: 100, classMate: Array(2)}
+        console.log(student[name]);//"张女士"
+        console.log(student.name);//"张女士"
+        console.log(student.cl);//属性不存在 undefined
+
+        student.cl="jj";
+        console.log(student.cl);//"jj"
+        console.log(student);
+
+        console.log('name' in student);//true
+        console.log('string' in student);//true 父类的方法
+        console.log(student.hasOwnProperty("name"));//true
+        console.log(student.hasOwnProperty("string"));//false 自己有没有这个方法
+
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

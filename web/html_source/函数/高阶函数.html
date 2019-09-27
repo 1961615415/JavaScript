@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>高阶函数</title>
+    <script>
+        /***
+         * 所谓的高阶就是 函数的参数又是另一个函数
+         */
+        function absMethod(a) {
+            return Math.abs(a);
+        }
+        function add(a,b) {
+            return a+b;
+        }
+        console.log("和为："+add(absMethod(-1),absMethod(-9)));//和为：10
+    </script>
+</head>
+<body>
+
+</body>
+</html>

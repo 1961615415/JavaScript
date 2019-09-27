@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的其它高阶函数</title>
+    <script>
+        /***
+         * 数组的其它高阶函数
+         * 除了map()、reduce、filter()、sort()这些方法可以传入一个函数外，Array对象还提供了很多非常实用的高阶函数
+         * every()方法可以判断数组的所有元素是否满足测试条件
+         * find()方法用于查找符合条件的第一个元素，如果找到了，返回这个元素，否则，返回undefined：
+         * findIndex 用于查找符合条件的第一个元素，如果找到了，返回这个元素的索引，否则-1：
+         * forEach(和map区别是不会返回新数组) 遍历数组
+         */
+        var arr = ['Apple', 'pear', 'orange'];
+        var result1=arr.every(function (value) {
+                return value.indexOf('p');
+        });
+        console.log(result1);//false
+        var result=arr.find(function (x) {
+            if(x="Apple"){
+                return x;
+            }
+        });
+        console.log(result);//Apple
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

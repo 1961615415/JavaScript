@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>reduce函数</title>
+    <script>
+        /***
+         * reduce函数
+         *      reduce是直接调用的函数的值和下一个值做计算
+         *      Array的reduce()把一个函数作用在这个Array的[x1, x2, x3...]上，
+         *      这个函数必须接收两个参数，reduce()把结果继续和序列的下一个元素做累积计算，
+         *      其效果就是： [x1, x2, x3, x4].reduce(f) = f(f(f(x1, x2), x3), x4)
+         */
+         function js(x) {
+            return x*x;
+        }
+        var arr=[1,2,3];
+         console.log(arr.reduce(function js(x,y) {
+             return x+y;
+         }));//6
+        //练习：利用reduce()求积：
+        console.log(arr.reduce(function qj(x,y) {
+            return x*y;
+        }));//6
+        //一个字符串13579先变成Array—— ["1", "3", "5", "7", "9"]，
+        // 再利用reduce()就可以写出一个把字符串转换为Number的函数
+      /*  var s="13579";
+        var arrs=s.split('');//["1", "3", "5", "7", "9"]
+        var arrn=[];
+        console.log(arrs.reduce(function StoN(x,y) {
+            return arrn.push(x+0);
+        }));
+        console.log(arrn);*/
+      //?
+    </script>
+</head>
+<body>
+
+</body>
+</html>
